@@ -1,0 +1,213 @@
+.single-product-page {
+
+    .breadcrumb {
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+}
+
+.main-img-wrap{
+
+    img {
+        margin: 15px auto 0 auto;
+        width: auto;
+        max-height: 568px;
+    }
+}
+
+.additionla-images {
+    margin-top: 5px;
+
+    .add-img-wrap {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        float: left;
+        width: 33.333333%;
+        height: 139px;
+        align-items: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(24, 24, 24, 0.1);
+
+        img {
+            float: left;
+            margin: auto;
+            padding: 3px 37px;
+            width: auto;
+            max-height: 139px;
+
+            &:not(:last-child) {
+                border-right: none;
+            }
+        }
+    }
+}
+
+.single-product-title {
+    margin-top: 0;
+    margin-bottom: 17px;
+    color: #000000;
+    font-family: $main-font-bold;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.product-description {
+    color: #4a4a4a;
+    line-height: 1.3;
+}
+
+.product-atributes {
+    margin-top: 35px;
+    padding: 40px;
+    border: 1px solid rgba(24, 24, 24, 0.1);
+
+    table {
+        width: 100%;
+
+        label {
+            color: #000000;
+            font-family: $main-font-bold;
+            font-size: 16px;
+            line-height: 3.1;
+        }
+
+        select {
+            position: relative;
+            padding: 10px 10px 10px 42px;
+            width: 100%;
+            background: url("../images/small-arrow.png");
+            background-position: left 18px center;
+            background-repeat: no-repeat;
+            border: 1px solid rgba(24, 24, 24, 0.1);
+            color: #4a4a4a;
+            letter-spacing: 0.2px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            &::-ms-expand {
+              display: none;
+            }
+        }
+    }
+
+    .total-price {
+        margin-top: 20px;
+
+        color: #4a4a4a;
+        font-size: 21px;
+        text-align: center;
+
+        .price {
+            color: $main-color;
+            font-family: $main-font-bold;
+        }
+    }
+
+    .add-to-cart {
+        @include button-style(12px, 42px, #ffdd00, 12px, #ffffff, $main-font-bold, 20px, rgba(255, 221, 0, 0.5));
+        margin: 20px auto 5px auto;
+        letter-spacing: 0.3px;
+    }
+}
+
+.similar-orders {
+
+    @extend .best-sellers;
+
+    .title-wrap {
+        h2 {
+            margin-top: 88px;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+
+.pp_pic_holder {
+    .pp_top {
+        height: 40px;
+
+        .pp_left,
+        .pp_middle {
+            height: 40px;
+        }
+
+        .pp_right {
+            height: 40px;
+            width: 40px;
+            padding-top: 19px;
+
+            a {
+                width: 20px;
+                height: 20px;
+                margin-top: 20px;
+                margin-right: 20px;
+                color: #979797;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .pp_content {
+        .pp_gallery {
+            position: relative;
+            display: block;
+            margin-top: 0;
+
+            ul {
+                height: 163px;
+
+                li {
+
+                    a {
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
+                        float: left;
+                        width: auto;
+                        height: 133px;
+                        align-items: center;
+                        -ms-flex-align: center;
+                        -webkit-align-items: center;
+                        justify-content: center;
+                        border: 1px solid rgba(24, 24, 24, 0.1);
+                    }
+                }
+            }
+        }
+    }
+
+    .pp_bottom {
+        div {
+            height: 133px;
+        }
+    }
+}
+
+#add-to-cart-success {
+    .modal-body {
+        padding: 0 40px;
+
+        .icon-group {
+            color: #1EB800;
+            font-size: 140px;
+            text-align: center;
+        }
+
+        p {
+            margin-top: 33px;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        h3 {
+            margin-top: 6px;
+            font-size: 39px;
+        }
+    }
+}

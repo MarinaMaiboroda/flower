@@ -1,0 +1,201 @@
+/** Add underline to hover effect **/
+@mixin link-hover-effect-underline($color, $border-width) {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 3px;
+    color: $color;
+    transform: translateZ(0);
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        background: $color;
+        height: $border-width;
+        @include transition(right 0.3s ease-out);
+    }
+
+    &:hover:before {
+        right: 0;
+    }
+}
+
+/** Add border to hover effect **/
+@mixin link-hover-effect-border($color, $bg, $border-width, $border-color, $padding, $animation-time) { /** $color - color of text on hover, &bg - background of link on hover **/
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    &:before {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: $border-color;
+        transform: translateX(-100%);
+    }
+
+    &:after {
+        content: attr(data-content);
+        left: 0;
+        top: 0;
+        width: 0;
+        margin: $border-width + $padding;
+        color: $border-color;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: width $animation-time ease;
+    }
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        transition: transform $animation-time ease;
+    }
+
+    > span {
+        position: relative;
+        display: block;
+        margin: $border-width;
+        padding: $padding;
+        background: $bg;
+        text-decoration: none;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            transition: transform $animation-time ease;
+        }
+    }
+
+    &:hover:before {
+        transform: translateX(0);
+    }
+
+    &:hover:after {
+        width: calc(100% - #{$border-width} - #{$padding});
+    }
+}
+
+
+/** Headers with line **/
+@mixin header-line ($font-size, $font-family, $color, $line-thickness) {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    color: $color;
+    font-family: $font-family;
+    font-size: $font-size;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    span {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        padding: 0 10px;
+        background: #ffffff;
+
+        @include small{
+            width: 80%;
+        }
+    }
+
+    &:before{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        z-index: -1;
+        display: inline-block;
+        margin-top: -$line-thickness/2;
+        width: 100%;
+        height: $line-thickness;
+        background: $color;
+        content: '';
+        vertical-align: middle;
+    }
+}
+
+/** Button element **/
+@mixin button-style($padding-vertical, $padding-horizontal, $bg, $border-radius, $color, $font-family, $font-size, $hover-bg) {
+    display: block;
+    width: auto;
+    margin: auto;
+    padding: $padding-vertical $padding-horizontal;
+    background: $bg;
+    border: none;
+    border-radius: $border-radius;
+    color: $color;
+    font-family: $font-family;
+    font-size: $font-size;
+    @include transition(background 1s ease);
+
+    &:hover, &:focus, &:active {
+        background: $hover-bg;
+    }
+}
+
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin transform($value){
+    -webkit-transform: ($value);
+    -moz-transform: ($value);
+    -ms-transform: ($value);
+    transform: ($value);
+}
+
+@mixin portrait {
+    @media (orientation: portrait){
+        @content;
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape){
+        @content;
+    }
+}
+
+@mixin iphone-6-land{
+    @media (max-width: 768px) and (min-width: 640px) {
+        @content
+    }
+}
+
+@mixin exta-small {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (max-width: 991px ) {
+        @content;
+    }
+}
+
+@mixin middle {
+    @media (max-width: 1200px ) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: 1200px ) {
+        @content;
+    }
+}

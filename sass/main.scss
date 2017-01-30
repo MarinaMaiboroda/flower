@@ -1,0 +1,149 @@
+@import "helpers/variables";
+@import "helpers/mixin";
+@import "vendors/bootstrap";
+@import "vendors/flexslider";
+@import "typography";
+@import "header";
+@import "footer";
+@import "pages/home";
+@import "pages/category";
+@import "pages/product";
+@import "pages/cart";
+
+body {
+    font-family: $main-font;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    background: none;
+    text-decoration: none;
+}
+
+input:focus,
+button:focus{
+    outline: none;
+}
+
+.capital {
+    text-transform: uppercase;
+}
+
+.container {
+    @include large {
+        width: 1200px;
+    }
+}
+
+.padding-none {
+    padding: 0;
+}
+
+.padding-left-none {
+    padding-left: 0;
+}
+
+.padding-right-none {
+    padding-right: 0;
+}
+
+.padding-left-50{
+    padding-left: 50px;
+}
+
+@include exta-small {
+
+    @include portrait {
+        .col-xs-6 {
+            width: 100%;
+        }
+    }
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+
+    .modal-dialog {
+        display: inline-block;
+        width: 570px;
+        text-align: left;
+        vertical-align: middle;
+
+        .modal-content {
+            border-radius: 28px;
+
+            .modal-header {
+                padding-bottom: 0;
+                border: 0;
+
+                .modal-title {
+                    margin: 5px 0 0 0;
+                    padding-top: 30px;
+                    font-size: 39px;
+                    text-align: center;
+                }
+
+                .close {
+                    margin: 9px 4px 0 0;
+                    opacity: 0.5;
+                }
+            }
+
+            .modal-body {
+                padding: 0 40px;
+            }
+
+            .modal-footer {
+                border: 0;
+                padding: 20px 65px 45px 65px;
+
+                button {
+                    &:first-child {
+                        @include button-style(15px, 7px, #969696, 12px, #ffffff, $main-font-bold, 18px, rgba(150, 150, 150, 0.5));
+                        float: left;
+                        width: 45%;
+                    }
+                }
+
+                button {
+                    &:last-child {
+                        @include button-style(15px, 20px, #1eb800, 12px, #ffffff, $main-font-bold, 18px, rgba(30, 184, 0, 0.5));
+                        float: right;
+                        width: 45%;
+                    }
+                }
+            }
+        }
+
+        @include exta-small {
+            width: 100%;
+        }
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+}
